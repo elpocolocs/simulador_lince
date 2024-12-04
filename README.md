@@ -28,3 +28,9 @@ Nota: Debe estar activado el ambiente virtual
 ´´´sh 
 pip install python-decouple
 ´´´
+
+### Liga para configurar cuenta de gmail
+https://myaccount.google.com/
+
+### Crear el password
+https://myaccount.google.com/apppasswords
