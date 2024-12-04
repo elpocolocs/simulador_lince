@@ -60,10 +60,17 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'lobo_app.urls'
 
+STATIC_URL = '/static/'  # URL base para archivos estáticos
+STATICFILES_DIRS = [BASE_DIR / 'static']  # Ruta global a la carpeta 'static'
+
+# Opcional: Configurar el directorio de recolección para producción
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # Incluye la carpeta templates aquí
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
