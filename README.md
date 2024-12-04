@@ -4,6 +4,12 @@
 
 ´django-admin startproject lobo_app´
 
+### crear aplicación
+Tenemos que estar dentro de la carpeta de la aplicación, donde está el archivo, ´manage.py´.
+
+´python manage.py startapp´
+
+
 ### migraciones iniciales de la base de datos
 
 ´´´sh 
