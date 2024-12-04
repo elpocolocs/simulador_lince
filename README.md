@@ -20,3 +20,11 @@ Esto no funciona sin las instrucciones anteriores
 python manage.py createsuperuser
 
 ´´´
+
+### agregar paquetes con pip
+
+Nota: Debe estar activado el ambiente virtual
+
+´´´sh 
+pip install python-decouple
+´´´
