@@ -4,15 +4,10 @@
   <div class="d-flex align-items-start row">
     <div class="col-sm-7">
       <div class="card-body">
-        {% if request.user.is_authenticated %}
-          <h5 class="card-title text-primary mb-3">Bienvenido, {{ request.user.username }}!! 🎉</h5>
-        {% else %}
-          <p>Bienvenido, Invitado!</p>
-        {% endif %}
+        <h5 class="card-title text-primary mb-3">Has salido exitosamente</h5>
+        <p>Puedes volver a ingresar</p>
 
-        <p class="mb-6">
-          You have done 72% more sales today.<br />Check your new badge in your profile.
-        </p>
+        <a href="{% url 'account:login' %}" class="btn btn-sm btn-outline-primary">Ingresar nuevamente</a>
       </div>
     </div>
     <div class="col-sm-5 text-center text-sm-left">

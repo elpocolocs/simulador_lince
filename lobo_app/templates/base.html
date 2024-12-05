@@ -15,7 +15,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Demo : Dashboard - Analytics | sneat - Bootstrap Dashboard PRO</title>
+    <title>
+    {% block title %}
+      Demo : Dashboard - Analytics | sneat - Bootstrap Dashboard PRO
+    {% endblock title %}
+      </title>
 
     <meta name="description" content="" />
 
@@ -68,6 +72,16 @@
                 <div class="col-xxl-8 mb-6 order-0">
                   {% include 'commons/hero.html' %}
                 </div>
+                
+                {% block content %}
+                  
+                {% endblock content %}
+                  
+                
+                {% comment %}
+                  
+               
+                  
                 <div class="col-lg-4 col-md-4 order-1">
                   <div class="row">
                     <div class="col-lg-6 col-md-12 col-6 mb-6">
@@ -596,7 +610,7 @@
               </div>
             </div>
             <!-- / Content -->
-
+ {% endcomment %}
             <!-- Footer -->
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl">
