@@ -1,5 +1,12 @@
 # proyecto_lobo
 ## Instrucciones django
+### Modelo de trabajo django
+Django trabaja con el modelo MVC(modelo vista controlador)
+
+El modelo es la base de datos
+La vista es el template de django
+El controlador es la función que se encarga de la lógica
+ 
 ### Crear proyecto
 
 ´django-admin startproject lobo_app´
