@@ -2,14 +2,20 @@
 
 
 {% block title %}
-    Este es el title del documento    
+    Venta de cursos    
 
 {% endblock title %}
     
 
+
 {% block content %}
-<h1>Este es mi contenido</h1>
-<p>Esste es un párrafo</p>
-    
+{% include 'commons/hero.html' %}
+{% include 'commons/about.html' %}
+{% include 'commons/service.html' %}
+{% include 'commons/feature.html' %}
+{% include 'commons/faq.html' %}
+{% include 'commons/pricing.html' %}
+{% include 'commons/blog.html' %}
+{% include 'commons/testimonials.html' %}
 {% endblock content %}
     
