@@ -29,6 +29,10 @@ LOGIN_REDIRECT_URL = "account:dashboard"
 LOGIN_URL = "account:login"
 LOGOUT_URL = "account:logout"
 
+# Manejo de imágenes
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -45,6 +49,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "accounts",
+    "cursos",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

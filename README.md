@@ -18,7 +18,7 @@ El controlador es la función que se encarga de la lógica
 
 Tenemos que estar dentro de la carpeta de la aplicación, donde está el archivo, ´manage.py´.
 
-´python manage.py startapp´
+´python manage.py startapp nombre_aplicación´
 
 ### migraciones iniciales de la base de datos
 
