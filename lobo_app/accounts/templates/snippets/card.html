@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="col-md-6 col-lg-4">
+  <div class="card h-100">
+    <img class="card-img-top" src="media/{{ curso.photo }}" alt="Card image cap" />
+    <div class="card-body">
+      <h5 class="card-title">{{ curso.nombre }}</h5>
+      <h6 class="card-subtitle">{{ curso.descripcion }}</h6>
+      <p class="card-text">$ {{ curso.precio }}</p>
+
+      <button href="javascript:void(0)" class="btn btn-outline-primary">Comprar curso</button>
+    </div>
+  </div>
+</div>

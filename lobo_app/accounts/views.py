@@ -1,11 +1,19 @@
+from cursos.models import Curso
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
+
 from .forms import UserRegistrationForm
 
 
 # Create your views here.
 def dashboard(request):
-    return render(request, "dashboard.html")
+    all_cursos = Curso.objects.all()
+    print(all_cursos)
+    return render(
+        request,
+        "dashboard.html",
+        {"all_cursos": all_cursos},
+    )
 
 
 def register(request):
