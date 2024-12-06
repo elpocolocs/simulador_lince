@@ -6,7 +6,6 @@
 
 {% block content %}
   <!-- Content -->
-
   <div class="container-xxl">
     <div class="authentication-wrapper authentication-basic container-p-y">
       <div class="authentication-inner">
@@ -50,38 +49,44 @@
                     </g>
                   </svg>
                 </span>
-                <span class="app-brand-text demo text-heading fw-bold">Lince</span>
+                <span class="app-brand-text demo text-heading fw-bold">sneat</span>
               </a>
             </div>
             <!-- /Logo -->
-            <h4 class="mb-1">¡Bienvenido a cursos lince!👋</h4>
+            <h4 class="mb-1">¡Bienvenido a cursos lobo!👋</h4>
             <p class="mb-6">Por favor ingrese con su usuario</p>
-            {% if form.errors %}
+            {% if user_form.errors %}
               <p>Tu nombre de usuario o la contraseña son incorrectos, intentalo de nuevo</p>
             {% endif %}
 
-            <form id="formAuthentication" class="mb-6" action="{% url 'account:login' %}" method="post">
+            <form id="formAuthentication" class="mb-6" action="{% url 'account:register' %}" method="post">
               {% csrf_token %}
               <div class="mb-6">
                 <label for="id_username" class="form-label">Nombre de Usuario</label>
-                <input type="text" class="form-control" id="email" name="username" placeholder="Ingrese su nombre de usuario" autofocus />
-              </div>
-              <div class="mb-6 form-password-toggle">
-                <label class="form-label" for="id_password">Contraseña</label>
-                <div class="input-group input-group-merge">
-                  <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-                  <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                </div>
+                <input type="text" class="form-control" id="username" name="username" maxlength="150" placeholder="Ingrese su nombre de usuario" autofocus required />
+                <span class="helptext" id="id_username_helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
               </div>
               <div class="mb-6">
-                <button class="btn btn-primary d-grid w-100" type="submit">Ingrese</button>
+                <label for="id_first_name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Ingrese su nombre de usuario" maxlength="150" />
+              </div>
+              <div class="mb-6">
+                <label for="id_email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese su email" required />
+              </div>
+              <div class="mb-6">
+                <label for="id_password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su nombre de usuario" required />
+              </div>
+              <div class="mb-6">
+                <label for="id_password2" class="form-label">Confirme Contraseña</label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Ingrese su nombre de usuario" required />
+              </div>
+
+              <div class="mb-6">
+                <button class="btn btn-primary d-grid w-100" type="submit">Crear Usuario</button>
               </div>
             </form>
-
-            <p class="text-center">
-              <span>¿Nuevo en la plataforma?</span>
-              <a href="{% url 'account:register' %}"><span>Crear cuenta</span></a>
-            </p>
           </div>
         </div>
         <!-- /Register -->

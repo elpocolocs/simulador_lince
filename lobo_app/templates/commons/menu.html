@@ -50,22 +50,26 @@
     <li class="menu-item active open">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-home-smile"></i>
-        <div class="text-truncate" data-i18n="Dashboards">Dashboards</div>
-        <span class="badge rounded-pill bg-danger ms-auto">5</span>
+        <div class="text-truncate" data-i18n="Dashboards">Cursos</div>
+        <span class="badge rounded-pill bg-danger ms-auto">0</span>
       </a>
       <ul class="menu-sub">
         {% if request.user.is_authenticated %}
-          <li class="menu-item active">
-            <form action="{% url 'account:logout' %}" method="post">
-              {% csrf_token %}
-              <button><a class="menu-link" onclick="submitForm()"><div class="text-truncate" data-i18n="Analytics">Logout</div></a></button>
-            </form>
-          </li>
-          <li class="menu-item active">
+          <form action="{% url 'account:logout' %}" method="post">
+            {% csrf_token %}
+            <li class="menu-item">
+              <a class="menu-link" onclick="submitForm()">
+                <div class="text-truncate" data-i18n="Analytics">
+                  <button style="border:0; background: none;">Logout</button>
+                </div>
+              </a>
+            </li>
+          </form>
+          <li class="menu-item">
             <a href="{% url 'account:password_change' %}" class="menu-link"><div class="text-truncate" data-i18n="Analytics">Cambiar password</div></a>
           </li>
         {% else %}
-          <li class="menu-item active">
+          <li class="menu-item">
             <a href="{% url 'account:login' %}" class="menu-link"><div class="text-truncate" data-i18n="Analytics">Login</div></a>
           </li>
         {% endif %}
