@@ -1,15 +1,68 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
   Curso comprado
 {% endblock %}
 
 {% block content %}
-  Compraste tu curso
-  <br />
-  {{ curso.nombre }}
-  <br />
-  {{ request.user.username }}
-  <br />
-  {{ curso.precio }}
+  <div class="row g-6 mb-6">
+    <!-- Inline text elements -->
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">{{ mensaje }}</h5>
+        {% if curso %}
+          <div class="card-body">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="align-middle">
+                    <small class="text-light fw-medium">Nombre del curso</small>
+                  </td>
+                  <td class="py-4">
+                    <p class="mb-0">{{ curso.nombre }}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="align-middle">
+                    <small class="text-light fw-medium">Precio del curso</small>
+                  </td>
+                  <td class="py-4">
+                    <p class="mb-0">{{ curso.precio }}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <small class="text-light fw-medium">Descripción</small>
+                  </td>
+                  <td class="py-4">
+                    <p class="mb-0">{{ curso.descripcion }}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="py-4"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <small class="text-light fw-medium">Codigo de compra</small>
+                  </td>
+                  <td class="py-4">
+                    <p class="mb-0">{{ curso_adquirido.codigo_compra }}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <small class="text-light fw-medium">Fecha de compra</small>
+                  </td>
+                  <td class="py-4">
+                    <p class="mb-0">{{ curso_adquirido.fecha_compra }}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
 {% endblock %}
