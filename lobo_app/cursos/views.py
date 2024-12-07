@@ -69,3 +69,7 @@ def generar_contrasena(longitud=20):
     caracteres = string.ascii_letters + string.digits + string.punctuation
     contraseña = "".join(random.choice(caracteres) for _ in range(longitud))
     return contraseña
+
+
+def listar_cursos_usuario(request):
+    pass

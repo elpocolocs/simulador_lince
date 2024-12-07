@@ -10,4 +10,9 @@ urlpatterns = [
         views.curso_comprado,
         name="curso_comprado",
     ),
+    path(
+        "vista_cursos/",
+        views.listar_cursos_usuario,
+        name="lista_cursos_usuario",
+    ),
 ]
