@@ -1,8 +1,10 @@
 import random
 import string
+from datetime import datetime
 
 from cursos.models import Curso, CursosComprados
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render
 
 
@@ -36,6 +38,22 @@ def curso_comprado(request, curso_id):
         print(codigo_compra)
         curso_adquirido.codigo_compra = codigo_compra
         curso_adquirido.save()
+        fecha_legible = curso_adquirido.fecha_compra.strftime(
+            "%A, %d de %B de %Y, %H:%M:%S"
+        )
+        cuerpo_correo = f"""Usuario {request.user.username}:
+
+        Felicidades, ha comprado el curso {curso.nombre}, con fecha {fecha_legible}.
+
+        Su código de acceso es: {curso_adquirido.codigo_compra}.
+        """
+
+        send_mail(
+            "Cursos lince",
+            cuerpo_correo,
+            "pocoluc@gmail.com",
+            [request.user.email],
+        )
     return render(
         request,
         "compra_exitosa.html",
