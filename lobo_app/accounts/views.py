@@ -7,8 +7,7 @@ from .forms import UserRegistrationForm
 
 # Create your views here.
 def dashboard(request):
-    all_cursos = Curso.objects.all()
-    print(all_cursos)
+    all_cursos = Curso.objects.all()  # Obtiene todos los cursos de la tabla curso
     return render(
         request,
         "dashboard.html",

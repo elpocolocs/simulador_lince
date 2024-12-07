@@ -7,8 +7,11 @@
       <h5 class="card-title">{{ curso.nombre }}</h5>
       <h6 class="card-subtitle">{{ curso.descripcion }}</h6>
       <p class="card-text">$ {{ curso.precio }}</p>
-
-      <button href="javascript:void(0)" class="btn btn-outline-primary">Comprar curso</button>
+      {% if request.user.is_authenticated %}
+        <a href="{% url 'cursos:curso_comprado' curso_id=curso.id %}" class="btn btn-outline-primary">Comprar curso</a>
+      {% else %}
+        <p>¿Quieres comprar el curso? Accede</p>
+      {% endif %}
     </div>
   </div>
 </div>

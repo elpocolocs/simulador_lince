@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Curso comprado
+{% endblock %}
+
+{% block content %}
+  Compraste tu curso
+  <br />
+  {{ curso.nombre }}
+  <br />
+  {{ request.user.username }}
+  <br />
+  {{ curso.precio }}
+{% endblock %}
