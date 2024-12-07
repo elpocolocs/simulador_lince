@@ -48,10 +48,9 @@
   <ul class="menu-inner py-1">
     <!-- Dashboards -->
     <li class="menu-item active open">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <a href="{% url 'cursos:lista_cursos_usuario' %}" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-home-smile"></i>
-        <div class="text-truncate" data-i18n="Dashboards">Cursos</div>
-        <span class="badge rounded-pill bg-danger ms-auto">0</span>
+        <div class="text-truncate" data-i18n="Dashboards">Menú</div>
       </a>
       <ul class="menu-sub">
         {% if request.user.is_authenticated %}
@@ -67,6 +66,9 @@
           </form>
           <li class="menu-item">
             <a href="{% url 'account:password_change' %}" class="menu-link"><div class="text-truncate" data-i18n="Analytics">Cambiar password</div></a>
+          </li>
+          <li class="menu-item">
+            <a href="{% url 'cursos:lista_cursos_usuario' %}" class="menu-link"><div class="text-truncate" data-i18n="Analytics">Ver cursos</div></a>
           </li>
         {% else %}
           <li class="menu-item">

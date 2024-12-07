@@ -72,4 +72,10 @@ def generar_contrasena(longitud=20):
 
 
 def listar_cursos_usuario(request):
-    pass
+    lista_cursos = CursosComprados.objects.filter(usuario=request.user)
+    print(lista_cursos)
+    return render(
+        request,
+        "lista_cursos.html",
+        {"lista_cursos": lista_cursos, "hero_message": "Estos son tus cursos"},
+    )

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Dashboard
+{% endblock %}
+
+{% block hero_message %}
+  Hola, estos son tus cursos
+{% endblock %}
+
+{% block content %}
+  <div class="row mb-12 g-6">
+    {% for curso in lista_cursos %}
+      {% include 'snippets1/card.html' with curso=curso.curso_comprado %}
+    {% endfor %}
+  </div>
+{% endblock %}
