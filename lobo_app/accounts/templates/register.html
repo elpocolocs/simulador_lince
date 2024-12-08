@@ -59,7 +59,7 @@
               <p>Tu nombre de usuario o la contraseña son incorrectos, intentalo de nuevo</p>
             {% endif %}
 
-            <form id="formAuthentication" class="mb-6" action="{% url 'account:register' %}" method="post">
+            <form id="formAuthentication" class="mb-6" action="{% url 'register' %}" method="post">
               {% csrf_token %}
               <div class="mb-6">
                 <label for="id_username" class="form-label">Nombre de Usuario</label>

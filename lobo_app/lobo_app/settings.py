@@ -26,9 +26,9 @@ DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Redirección tras login
-LOGIN_REDIRECT_URL = "account:dashboard"
-LOGIN_URL = "account:login"
-LOGOUT_URL = "account:logout"
+LOGIN_REDIRECT_URL = "dashboard"
+LOGIN_URL = "login"
+LOGOUT_URL = "logout"
 
 # Manejo de imágenes
 MEDIA_URL = "media/"
