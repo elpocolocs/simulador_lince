@@ -77,5 +77,5 @@ def listar_cursos_usuario(request):
     return render(
         request,
         "lista_cursos.html",
-        {"lista_cursos": lista_cursos, "hero_message": "Estos son tus cursos"},
+        {"lista_cursos": lista_cursos, "hero_message": "Estos son mis cursos"},
     )

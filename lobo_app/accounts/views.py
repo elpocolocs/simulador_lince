@@ -7,6 +7,8 @@ from .forms import UserRegistrationForm
 
 # Create your views here.
 def dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
     all_cursos = Curso.objects.all()  # Obtiene todos los cursos de la tabla curso
     print(all_cursos)
     return render(
