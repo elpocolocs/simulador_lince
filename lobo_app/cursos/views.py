@@ -2,7 +2,8 @@ import random
 import string
 from datetime import datetime
 
-from cursos.models import Curso, CursosComprados
+from cart.forms import CartAddCourseForm
+from cursos.models import Category, Curso, CursosComprados
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, render
@@ -24,7 +25,7 @@ def curso_comprado(request, curso_id):
     except:
         curso_adquirido = None
 
-    print(type(curso_adquirido))
+    # print(type(curso_adquirido))
     mensaje = ""
     # Comprobamos si el usuario ya compró el curso
     if curso_adquirido:
@@ -78,4 +79,43 @@ def listar_cursos_usuario(request):
         request,
         "lista_cursos.html",
         {"lista_cursos": lista_cursos, "hero_message": "Estos son mis cursos"},
+    )
+
+
+def curso_detail(request, id, slug):
+    curso = get_object_or_404(
+        Curso,
+        id=id,
+        slug=slug,
+        available=True,
+    )
+    return render(
+        request,
+        "detail.html",
+        {
+            "curso": curso,
+        },
+    )
+
+
+def cursos_list(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    cursos = Curso.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(
+            Category,
+            slug=category_slug,
+        )
+        cursos = cursos.filter(category=category)
+    cart_course_form = CartAddCourseForm()
+    return render(
+        request,
+        "list_courses.html",
+        {
+            "category": category,
+            "categories": categories,
+            "cursos": cursos,
+            "cart_course_form": cart_course_form,
+        },
     )

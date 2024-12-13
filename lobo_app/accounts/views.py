@@ -1,20 +1,28 @@
-from cursos.models import Curso
+from cursos.models import Category, Curso
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import UserRegistrationForm
 
 
 # Create your views here.
-def dashboard(request):
+def dashboard(request, category_slug=None):
     if not request.user.is_authenticated:
         return redirect("login")
+    category = None
+    categories = Category.objects.all()
     all_cursos = Curso.objects.all()  # Obtiene todos los cursos de la tabla curso
-    print(all_cursos)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        all_cursos = all_cursos.filter(category=category)
     return render(
         request,
         "dashboard.html",
-        {"all_cursos": all_cursos},
+        {
+            "all_cursos": all_cursos,
+            "categories": categories,
+            "category": category,
+        },
     )
 
 

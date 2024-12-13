@@ -1,8 +1,7 @@
 <!-- Menu -->
-
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand demo">
-    <a href="{% url 'dashboard' %}" class="app-brand-link">
+    <a href="{% url 'cursos:cursos_list' %}" class="app-brand-link">
       <span class="app-brand-logo demo">
         <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -39,16 +38,13 @@
       </span>
       <span class="app-brand-text demo menu-text fw-bold ms-2">Lince</span>
     </a>
-
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none"><i class="bx bx-chevron-left bx-sm d-flex align-items-center justify-content-center"></i></a>
   </div>
-
   <div class="menu-inner-shadow"></div>
-
   <ul class="menu-inner py-1">
     <!-- Dashboards -->
     <li class="menu-item active open">
-      <a href="{% url 'cursos:lista_cursos_usuario' %}" class="menu-link menu-toggle">
+      <a href="{% url 'cursos:cursos_list' %}" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-home-smile"></i>
         <div class="text-truncate" data-i18n="Dashboards">Menú</div>
       </a>
@@ -68,7 +64,7 @@
             <a href="{% url 'password_change' %}" class="menu-link"><div class="text-truncate" data-i18n="Analytics">Cambiar password</div></a>
           </li>
           <li class="menu-item">
-            <a href="{% url 'cursos:lista_cursos_usuario' %}" class="menu-link"><div class="text-truncate" data-i18n="Analytics">Ver mis cursos</div></a>
+            <a href="{% url 'cursos:cursos_list' %}" class="menu-link"><div class="text-truncate" data-i18n="Analytics">Ver mis cursos</div></a>
           </li>
         {% else %}
           <li class="menu-item">
