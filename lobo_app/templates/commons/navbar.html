@@ -13,16 +13,18 @@
             <!-- Place this tag where you want the button to render. -->
             <li class="nav-item lh-1 me-4">
                 {% with total_items=cart|length %}
-                    {% if total_items > 0 %}
                         <a class="btn btn-primary"
                            href="{% url 'cart:cart_detail' %}"
                            data-size="large"
                            aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">
-                            Your Cart:
-                            {{ total_items }} item{{ total_items|pluralize }}
-                            ${{ cart.get_total_price }}
+                            {% if total_items > 0 %}
+                                    Tu Carrito:
+                                    {{ total_items }} elemento{{ total_items|pluralize }}
+                                    ${{ cart.get_total_price }}
+                                {% else %}
+                                Tu Carrito está vacío
+                            {% endif %}
                         </a>
-                    {% endif %}
                 {% endwith %}
             </li>
             <!-- User -->

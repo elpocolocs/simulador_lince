@@ -23,8 +23,9 @@ from django.urls import include, path
 urlpatterns = [
     path("curso/", include("cursos.urls", namespace="curso")),
     path("cart/", include("cart.urls", namespace="cart")),
-    path("", include("accounts.urls", namespace="")),
+    path("orders/", include("orders.urls", namespace="orders")),
     path("admin/", admin.site.urls),
+    path("", include("accounts.urls", namespace="")),
 ]
 
 if settings.DEBUG:
