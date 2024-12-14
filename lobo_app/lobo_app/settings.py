@@ -46,13 +46,10 @@ SECRET_KEY = "django-insecure-eh!^!6u=74c0lv90q)xmv1j=2ecw!5*3)hml%9f9b@es0re#=k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ["", "localhost:8000", "127.0.0.1"]
+
+ALLOWED_HOSTS = ["", "localhost", "127.0.0.1"]
 
 CART_SESSION_ID = "cart"
-=======
-ALLOWED_HOSTS = ["", "localhost", "127.0.0.1"]
->>>>>>> 39c97b07871d1a329d6a5bde6d94d2373d8d45d2
 
 
 # Application definition
@@ -66,8 +63,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "carrito.apps.CartConfig",
-    "shop.apps.ShopConfig",
     # mis aplicaciones
     "cart.apps.CartConfig",
     "orders.apps.OrdersConfig",

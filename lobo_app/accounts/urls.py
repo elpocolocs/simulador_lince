@@ -39,5 +39,4 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(),  # Usa la vista genérica
         name="password_reset_complete",  # nombre de la función pero en mi template
     ),
-    path("", views.dashboard, name="dashboard"),
 ]

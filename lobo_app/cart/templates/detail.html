@@ -6,39 +6,53 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Tu carrito de compra</h1>
   <table class="cart">
-    <thead>
-      <tr>
-        <th>Curso</th>
-        <th>Cantidad</th>
-        <th>Remover</th>
-        <th>Precio Unitario</th>
-        <th>Total</th>
-      </tr>
-    </thead>
+      <h1>Tu carrito de compra</h1>
+
     <tbody>
+      <div class="table-responsive text-nowrap">
+        <thead style="background-color: black; color: azure;">
+          <tr>
+            <th>Curso</th>
+            <th>Cantidad</th>
+            <th>Remover</th>
+            <th>Precio unitario</th>
+            <th>Total</th>
+          </tr>
+        </thead>
       {% for item in cart %}
         {% with course=item.curso %}
-          <tr>
-            <td>{{ course.nombre }}</td>
-            <td>
-              <form action="{% url 'cart:cart_add' course.id %}" method="post">
-                {{ item.update_quantity_form.quantity }}
-                {{ item.update_quantity_form.override }}
-                <input type="submit" value="Actualizar" />
-                {% csrf_token %}
-              </form>
-            </td>
-            <td>
-              <form action="{% url 'cart:cart_remove' course.id %}" method="post">
-                <input type="submit" value="Remover" />
-                {% csrf_token %}
-              </form>
-            </td>
-            <td>{{ item.price }}</td>
-            <td>{{ item.total_price }}</td>
-          </tr>
+          <div class="card">
+                
+                <tbody class="table-border-bottom-0">
+                  <tr>
+                    <tr>
+                      <td>{{ course.nombre }}</td>
+                      <td>
+                        <form action="{% url 'cart:cart_add' course.id %}" method="post">
+                          {{ item.update_quantity_form.quantity }}
+                          {{ item.update_quantity_form.override }}
+                          <input type="submit" value="Actualizar" 
+                          style="background-color: #5e4ae3; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; text-align: center; margin: 5px; border: none; cursor: pointer;"/>
+                          {% csrf_token %}
+                        </form>
+                      </td>
+                      <td>
+                        <form action="{% url 'cart:cart_remove' course.id %}" method="post">
+                          <input type="submit" value="Remover" 
+                          style="background-color: #5e4ae3; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; text-align: center; margin: 5px; border: none; cursor: pointer;"/>
+                          {% csrf_token %}
+                        </form>
+                      </td>
+                      <td>{{ item.price }}</td>
+                      <td>{{ item.total_price }}</td>
+                    </tr>
+                    
+                 
+           
+                   
+                      
+            
         {% endwith %}
       {% endfor %}
       <tr class="total">
@@ -46,10 +60,16 @@
         <td colspan="3"></td>
         <td class="num">${{ cart.get_total_price }}</td>
       </tr>
-    </tbody>
   </table>
   <p class="text-right">
-    <a href="{% url 'cursos:cursos_list' %}" class="button light">Continuar Comprando</a>
-    <a href="{% url 'orders:order_create' %}" class="button">Pagar</a>
+    <a href="{% url 'cursos:cursos_list' %}" 
+   style="background-color: #5e4ae4; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; text-align: center; margin: 5px;">
+   Continuar Comprando
+</a>
+<a href="{% url 'orders:order_create' %}" 
+   style="background-color: #5e4ae4; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; text-align: center; margin: 5px;">
+   Pagar
+</a>
+
   </p>
 {% endblock %}

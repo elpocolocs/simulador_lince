@@ -35,6 +35,7 @@ class Curso(models.Model):
         on_delete=models.CASCADE,
         null=True,
         blank=True,
+        default=1,
     )
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
