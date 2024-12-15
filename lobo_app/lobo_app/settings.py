@@ -56,6 +56,7 @@ CART_SESSION_ID = "cart"
 
 INSTALLED_APPS = [
     "accounts",
+    "orders.apps.OrdersConfig",
     "cursos",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -65,7 +66,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # mis aplicaciones
     "cart.apps.CartConfig",
-    "orders.apps.OrdersConfig",
 ]
 
 MIDDLEWARE = [

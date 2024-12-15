@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -12,10 +13,11 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    key = models.CharField(max_length=20, default="")
 
     class Meta:
         ordering = ["-created"]
-        indexes = [models.Index(fields=["-created"])]
+        indexes = [models.Index(fields=["-created", "-email"])]
 
     def __str__(self):
         return f"Order {self.id}"
@@ -25,12 +27,22 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+    class Meta:
+        ordering = ["-order"]
+        indexes = [models.Index(fields=["-order"])]
+
+    user = models.ForeignKey(
+        User,
+        related_name="bought_courses",
+        on_delete=models.CASCADE,
+        default=0,
+    )
     order = models.ForeignKey(
         Order,
         related_name="items",
         on_delete=models.CASCADE,
     )
-    product = models.ForeignKey(
+    course = models.ForeignKey(
         "cursos.Curso",
         related_name="order_items",
         on_delete=models.CASCADE,

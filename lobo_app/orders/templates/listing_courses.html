@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Dashboard
+{% endblock %}
+
+{% block hero_message %}
+  <h1>{{ hero_message }}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="row mb-12 g-6">
+    {% for cc in lista_cursos %}
+      {% include 'snippets1/card.html' with curso=cc %}
+    {% endfor %}
+  </div>
+{% endblock %}
